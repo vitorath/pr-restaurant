@@ -1,0 +1,12 @@
+server:
+  port: 8000
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/supply_chain_services
+    username: vitorath
+    password: vitorath
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-plataform: org.hibernate.dialect.PostgreSQL9Dialect
+    show-sql: true

@@ -1,0 +1,146 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2019-28-06#CreateProducts
+      author: vitor-a-thomazini
+      changes:
+        - createTable:
+            tableName: products
+            columns:
+               - column:
+                   name: id
+                   type: bigint
+                   constraints:
+                     nullable: false
+               - column:
+                   name: public_id
+                   type: uuid
+                   constraints:
+                     unique: true
+                     nullable: false
+               - column:
+                   name: name
+                   type: varchar(75)
+                   constraints:
+                     nullable: false
+               - column:
+                   name: purchase_price
+                   type: numeric(16,4)
+                   constraints:
+                     nullable: false
+               - column:
+                   name: amount
+                   type: numeric(16,4)
+                   constraints:
+                     nullable: false
+               - column:
+                   name: amount_used
+                   type: numeric(16,4)
+                   constraints:
+                     nullable: false
+               - column:
+                   name: unit_of_measurement
+                   type: varchar(2)
+                   constraints:
+                     nullable: false
+               - column:
+                   name: alcoholContent
+                   type: numeric(16,4)
+                   constraints:
+                     nullable: false
+               - column:
+                   name: product_type
+                   type: varchar(20)
+                   constraints:
+                     nullable: false
+               - column:
+                   name: available
+                   type: boolean
+                   constraints:
+                     nullable: false
+        - addPrimaryKey:
+            columnNames: id
+            constraintName: pk_products
+            tableName: products
+  - changeSet:
+      id: 2019-28-06#CreateMeals
+      author: vitor-a-thomazini
+      changes:
+        - createTable:
+            tableName: meals
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: public_id
+                  type: uuid
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(75)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price
+                  type: numeric(16,4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amount_people
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: temperature
+                  type: varchar(15)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: alcohol_content
+                  type: numeric(16,4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: meal_type
+                  type: varchar(15)
+                  constraints:
+                    nullable: false
+        - addPrimaryKey:
+            columnNames: id
+            constraintName: pk_meals
+            tableName: meals
+  - changeSet:
+      id: 2019-28-06#CreateMealProduct
+      author: vitor-a-thomazini
+      changes:
+        - createTable:
+            tableName: meal_product
+            columns:
+              - column:
+                  name: meal_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: product_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: product_purchase_price
+                  type: numeric(16,4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amount
+                  type: numeric(16,4)
+                  constraints:
+                    nullable: false
+        - addPrimaryKey:
+            columnNames: meal_id, product_id
+            constraintName: pk_meal_product
+            tableName: meal_product

@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    database-plataform: org.hibernate.dialiect.H2Dialect
+  bus:
+    enabled: false
+  cloud:
+    discovery:
+      enabled: false
+    consul:
+      enabled: false
+      config:
+        enabled: false

@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: supply-chain-service
+  jpa:
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+      ddl-auto: validate
+
